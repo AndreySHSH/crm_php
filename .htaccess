@@ -1,0 +1,14 @@
+Options +SymLinksIfOwnerMatch
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule ^admin/([a-z]*) /admin/index.php?get=$1
+RewriteRule ^settings/ /admin/settings.php?get=$1
+RewriteRule ^templates/([a-z]*) /admin/templates.php?get=$1
+RewriteRule ^plagins/([a-z]*) /admin/plagins.php?get=$1
+
+
+ErrorDocument 404 /404.html
